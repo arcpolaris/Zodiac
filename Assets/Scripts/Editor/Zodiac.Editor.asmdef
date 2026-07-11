@@ -1,0 +1,18 @@
+{
+    "name": "Zodiac.Editor",
+    "rootNamespace": "Zodiac.Editor",
+    "references": [
+        "GUID:58540850e8c9f2340af16e78a189ee79"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
