@@ -11,7 +11,7 @@ namespace Zodiac.Editor
         {
             try
             {
-                var propertyAttribute = this.attribute as LabelOverride;
+                var propertyAttribute = (LabelOverride)base.attribute;
                 if (!IsItBloodyArrayTho(property))
                 {
                     label.text = propertyAttribute!.label;
