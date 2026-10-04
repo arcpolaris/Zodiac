@@ -57,8 +57,13 @@ namespace IngameDebugConsole
 
         private delegate object FieldInfoGetDelegate(object obj);
         private delegate void FieldInfoSetDelegate(object obj, object value);
-        private readonly FieldInfoGetDelegate m_IsCompositionActiveGetter = typeof(TMP_InputField).GetField("m_IsCompositionActive", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).GetValue;
-        private readonly FieldInfoSetDelegate m_IsTextComponentUpdateRequiredSetter = typeof(TMP_InputField).GetField("m_IsTextComponentUpdateRequired", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).SetValue;
+        private static readonly FieldInfo m_IsCompositionActiveFieldInfo = typeof(TMP_InputField).GetField("m_IsCompositionActive", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly FieldInfo m_IsTextComponentUpdateRequiredFieldInfo = typeof(TMP_InputField).GetField("m_IsTextComponentUpdateRequired", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+        private readonly FieldInfoGetDelegate m_IsCompositionActiveGetter =
+            m_IsCompositionActiveFieldInfo != null ? (FieldInfoGetDelegate)m_IsCompositionActiveFieldInfo.GetValue : (obj) => false;
+        private readonly FieldInfoSetDelegate m_IsTextComponentUpdateRequiredSetter =
+            m_IsTextComponentUpdateRequiredFieldInfo != null ? (FieldInfoSetDelegate)m_IsTextComponentUpdateRequiredFieldInfo.SetValue : (obj, value) => { };
         private readonly object boxedTrueValue = true;
 
         public void Initialize(DebugLogManager manager)

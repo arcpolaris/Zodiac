@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     void Update() => ai.Update();
 
-    public void Destroy() => GameObject.Destroy(this);
+    public void Destroy() => GameObject.Destroy(this.gameObject);
 
     class SeekingState : State<Enemy>
     {

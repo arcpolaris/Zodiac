@@ -2,7 +2,8 @@
     "name": "Zodiac.Editor",
     "rootNamespace": "Zodiac.Editor",
     "references": [
-        "GUID:58540850e8c9f2340af16e78a189ee79"
+        "GUID:58540850e8c9f2340af16e78a189ee79",
+        "GUID:4d449a4732e064d26a3069f2cfd88917"
     ],
     "includePlatforms": [
         "Editor"
